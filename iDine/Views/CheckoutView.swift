@@ -14,9 +14,11 @@ struct CheckoutView: View {
     @State private var loyaltyNumber = ""
     @State private var tipAmount = 15
     @State private var showingPaymentAlert = false
+    @State private var pickUpTime = "Now"
 
     let paymentTypes = ["Cash", "Credit Card", "iDine Points"]
     let tipAmounts = [10, 15, 20, 25, 0]
+    let pickUpTimes = ["Now", "Tonight", "Tomorrow Moring"]
 
     var totalPrice: String {
         let total = Double(order.total)
@@ -48,11 +50,25 @@ struct CheckoutView: View {
                 }
                 .pickerStyle(SegmentedPickerStyle())
             }
+            
+            Section("When do you want to pick up?"){
+                Picker("I will pick up", selection: $pickUpTime){
+                    ForEach(pickUpTimes, id:\.self){
+                        Text("\($0)")
+                    }
+                }
+            }
 
             Section("Total: \(totalPrice)") {
-                Button("Confirm order") {
-                    showingPaymentAlert.toggle()
+                
+                HStack{
+                    Spacer()
+                    Button("Confirm order") {
+                        showingPaymentAlert.toggle()
+                    }
+                    Spacer()
                 }
+                
             }
         }
         .navigationTitle("Payment")
@@ -60,7 +76,7 @@ struct CheckoutView: View {
         .alert("Order confirmed", isPresented: $showingPaymentAlert) {
             // no buttons needed
         } message: {
-            Text("Your total was \(totalPrice) - thank you!")
+            Text("Your total was \(totalPrice) \n Remeber to pick up \(pickUpTime) \n \n  Thank you!")
         }
     }
 }
