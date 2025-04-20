@@ -14,11 +14,17 @@ struct MainView: View {
                 .tabItem {
                     Label("Menu", systemImage: "list.dash")
                 }
+            
+            FavoritesView()
+                .tabItem{
+                    Label("Favorites", systemImage: "heart")
+                }
 
             OrderView()
                 .tabItem {
                     Label("Order", systemImage: "square.and.pencil")
                 }
+            
         }
     }
 }
@@ -27,5 +33,6 @@ struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
             .environmentObject(Order())
+            .environmentObject(FavoritesManager())
     }
 }

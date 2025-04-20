@@ -15,6 +15,7 @@
 		513D22E125D16DD900C1A803 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513D22DF25D16DD900C1A803 /* Menu.swift */; };
 		513D22E425D16DEE00C1A803 /* menu.json in Resources */ = {isa = PBXBuildFile; fileRef = 513D22E325D16DEE00C1A803 /* menu.json */; };
 		513D22E725D1729200C1A803 /* ItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513D22E625D1729200C1A803 /* ItemRow.swift */; };
+		AE4B03792DB4D21E00A9EB21 /* FavoritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4B03782DB4D21E00A9EB21 /* FavoritesManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		513D22DF25D16DD900C1A803 /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		513D22E325D16DEE00C1A803 /* menu.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = menu.json; sourceTree = "<group>"; };
 		513D22E625D1729200C1A803 /* ItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRow.swift; sourceTree = "<group>"; };
+		AE4B03782DB4D21E00A9EB21 /* FavoritesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -79,6 +81,7 @@
 				AE7F826B2DB23A080049C6AE /* Views */,
 				AE7F826D2DB23A4C0049C6AE /* Styles */,
 				513D22DB25D16DC000C1A803 /* Helper.swift */,
+				AE4B03782DB4D21E00A9EB21 /* FavoritesManager.swift */,
 				513D22E625D1729200C1A803 /* ItemRow.swift */,
 				513D22DF25D16DD900C1A803 /* Menu.swift */,
 				513D22DE25D16DD900C1A803 /* Order.swift */,
@@ -172,6 +175,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				513D22CC25D16D9E00C1A803 /* iDineApp.swift in Sources */,
+				AE4B03792DB4D21E00A9EB21 /* FavoritesManager.swift in Sources */,
 				513D22E025D16DD900C1A803 /* Order.swift in Sources */,
 				513D22E725D1729200C1A803 /* ItemRow.swift in Sources */,
 				513D22DC25D16DC000C1A803 /* Helper.swift in Sources */,

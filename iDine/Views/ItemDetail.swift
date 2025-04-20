@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ItemDetail: View {
     @EnvironmentObject var order: Order
+    @EnvironmentObject var favoritesManager: FavoritesManager
     let item: MenuItem
 
     var body: some View {
@@ -24,7 +25,12 @@ struct ItemDetail: View {
                     .font(.caption)
                     .foregroundColor(.white)
                     .offset(x: -5, y: -5)
+                
+
+                
             }
+            
+
             
 //            HStack{
 //                Spacer(minLength: 10)
@@ -59,12 +65,26 @@ struct ItemDetail: View {
             
             
             
-            Button("Order This") {
-                order.add(item: item)
+            HStack{
+                Button("Order This") {
+                    order.add(item: item)
+                }
+                .buttonStyle(ShadowButtonStyle(radius: 8))
+                .buttonBorderShape(.roundedRectangle)
+                .padding()
+                
+    //            添加收藏按钮
+                Button(action:{
+                    favoritesManager.toggleFavorite(for: item)
+                }){
+                    Image(systemName: favoritesManager.isFavoried(item: item) ? "heart.fill":"heart")
+                        .foregroundColor(.red)
+                        .padding(8)
+                        .background(Circle().fill(Color.white.opacity(0.8)))
+                }
+                .padding()
             }
-            .buttonStyle(ShadowButtonStyle(radius: 8))
-            .buttonBorderShape(.roundedRectangle)
-
+            
             Spacer()
         }
         .navigationTitle(item.name)
@@ -77,6 +97,7 @@ struct ItemDetail_Previews: PreviewProvider {
         NavigationStack {
             ItemDetail(item: MenuItem.example)
                 .environmentObject(Order())
+                .environmentObject(FavoritesManager())
         }
     }
 }
