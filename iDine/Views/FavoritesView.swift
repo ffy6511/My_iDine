@@ -8,17 +8,17 @@
 import SwiftUI
 
 struct FavoritesView: View {
-    
+
     @EnvironmentObject var favoritesManager: FavoritesManager
-    
+
     let menu = Bundle.main.decode([MenuSection].self, from: "menu.json")
-    
+
 //    获取所有收藏的菜品
     var favoritedItems:[MenuItem]{
         let allItems = menu.flatMap{$0.items}
-        return allItems.filter{favoritesManager.isFavoried(item:$0)}
+        return allItems.filter{favoritesManager.isFavorited(item:$0)}
     }
-    
+
     var body: some View {
             NavigationStack {
                 if favoritedItems.isEmpty {
@@ -27,11 +27,11 @@ struct FavoritesView: View {
                             .font(.system(size: 60))
                             .foregroundColor(.gray)
                             .padding()
-                        
+
                         Text("您还没有收藏任何菜品")
                             .font(.title2)
                             .foregroundColor(.gray)
-                        
+
                         Text("浏览菜单并点击❤️来添加收藏")
                             .font(.subheadline)
                             .foregroundColor(.gray)

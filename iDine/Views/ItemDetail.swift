@@ -25,16 +25,16 @@ struct ItemDetail: View {
                     .font(.caption)
                     .foregroundColor(.white)
                     .offset(x: -5, y: -5)
-                
 
-                
+
+
             }
-            
 
-            
+
+
 //            HStack{
 //                Spacer(minLength: 10)
-//                
+//
 //                Text(item.description)
 //                    .padding()
 //                    .background(Color(.systemGray6))
@@ -45,10 +45,10 @@ struct ItemDetail: View {
 //                    .clipShape(RoundedRectangle(cornerRadius: 10))
 //                // 保证背景和边框都圆角
 //                .frame(maxWidth: 400) // 最大宽度限制
-//                
+//
 //                Spacer(minLength: 10)
 //            }
-            
+
             Text(item.description)
                 .padding(.horizontal, 12) // 卡片内容内边距
                 .padding(.vertical, 12)
@@ -61,10 +61,10 @@ struct ItemDetail: View {
                 .padding(.horizontal, 10) // 整个卡片距离父视图左右20pt
                 .padding(.vertical,20)
 
-            
-            
-            
-            
+
+
+
+
             HStack{
                 Button("Order This") {
                     order.add(item: item)
@@ -72,19 +72,14 @@ struct ItemDetail: View {
                 .buttonStyle(ShadowButtonStyle(radius: 8))
                 .buttonBorderShape(.roundedRectangle)
                 .padding()
-                
+
+
     //            添加收藏按钮
-                Button(action:{
-                    favoritesManager.toggleFavorite(for: item)
-                }){
-                    Image(systemName: favoritesManager.isFavoried(item: item) ? "heart.fill":"heart")
-                        .foregroundColor(.red)
-                        .padding(8)
-                        .background(Circle().fill(Color.white.opacity(0.8)))
-                }
+                FavoriteButton(favoritesManager: favoritesManager, item: item)
                 .padding()
+                .fixedSize() // 确保收藏按钮大小固定
             }
-            
+
             Spacer()
         }
         .navigationTitle(item.name)
